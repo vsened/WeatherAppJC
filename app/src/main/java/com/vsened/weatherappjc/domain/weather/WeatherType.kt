@@ -1,4 +1,4 @@
-package com.plcoding.weatherapp.domain.weather
+package com.vsened.weatherappjc.domain.weather
 
 import androidx.annotation.DrawableRes
 import com.plcoding.weatherapp.R
