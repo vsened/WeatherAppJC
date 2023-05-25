@@ -3,7 +3,6 @@ package com.vsened.weatherappjc.presentation
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vsened.weatherappjc.domain.location.LocationTracker
@@ -32,7 +31,7 @@ class WeatherViewModel @Inject constructor(
                 when(val result = repository.getWeatherData(location.latitude, location.longitude)) {
                     is Resource.Success -> {
                         state = state.copy(
-                            weatherInfo =  result.data,
+                            weatherInfo = result.data,
                             isLoading = false,
                             error = null
                         )
@@ -45,10 +44,10 @@ class WeatherViewModel @Inject constructor(
                         )
                     }
                 }
-            }  ?: kotlin.run {
+            } ?: kotlin.run {
                 state = state.copy(
                     isLoading = false,
-                    error = "Couldn't retrieve location. Make sure to grant permission and enabled GPS."
+                    error = "Couldn't retrieve location. Make sure to grant permission and enable GPS."
                 )
             }
         }
